@@ -5,6 +5,8 @@
  */
 package personaltwitterfeed;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -29,7 +31,15 @@ public class PersonalTwitterFeed {
         System.out.println("Nice to meet you " + tweeterName + "!");
         System.out.println("Enter your tweets and I will add them to your timeline!");
         
-        int numTweets = 0;
+    }
+   public static String getCurrentTimeStamp() {
+      Date now = new Date();
+      SimpleDateFormat dateFormat = new SimpleDateFormat ("yyyy-MM-dd");
+      return dateFormat.format(now);
+   }
+   public static void newTweet(String[]tweets, String tweeterName){
+       Scanner keyboard = new Scanner(System.in);
+       int numTweets = 0;
         
         while(numTweets < (MAX_NUMBER_TWEETS - 1)) {
             tweets[numTweets] = keyboard.nextLine();
@@ -48,8 +58,8 @@ public class PersonalTwitterFeed {
             if(numTweets < (MAX_NUMBER_TWEETS - 1))
                 System.out.println("Enter your next tweet:");
         }
-        
+       
         System.out.println("Your twitter feed is full");
-    }
-    
-}
+   }
+      
+   }
